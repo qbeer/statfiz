@@ -263,4 +263,63 @@ S = k\Big(Mln(g) + ln(\frac{N!}{M!(N-M)!})\Big) = \\
 \end{gathered}
 \end{equation}
 
+\section{Vizsgáljunk feles spinű részecskék inkoherens szuperpozícióját! Legyen $t=0$-ban... (10. Gyakorlat.)}
+
+\par $S_{z} +\frac{\hbar}{2}$ sajátállapota az $(1,0)$ vektornak feleltethető meg, legyen $\ket{\uparrow}$, míg $S_{x} -\frac{hbar}{2}$ állapota a $(0,1)$ vektornak felel meg, legyen ez $\ket{\downarrow}$. A feladat szövege szerint a sűrűségmátrix $t=0$-ban:
+
+\begin{equation*}
+\rho_{0} = \frac{3}{5}\ket{\uparrow}\bra{\uparrow} + \frac{2}{5}\ket{\downarrow}\bra{\downarrow}
+\end{equation*}
+
+\par Ekkor az 'állapotokat' idő fejlesztve:
+
+\begin{equation*}
+\begin{gathered}
+\ket{\uparrow} \sim \ket{\uparrow}e^{-\frac{i}{\hbar}\hat{H}t} = \ket{\uparrow}\Big(\sigma_{0}cos\Big(\frac{\mu B}{2} T\Big) - i\cdot sin\Big(\frac{\mu B}{2}T\Big)\sigma_{y}\Big) \\
+\ket{\downarrow} \sim \ket{\downarrow}e^{-\frac{i}{\hbar}\hat{H}t} = \ket{\downarrow}\Big(\sigma_{0}cos\Big(\frac{\mu B}{2} T\Big) - i\cdot sin\Big(\frac{\mu B}{2}T\Big)\sigma_{y}\Big)
+\end{gathered}
+\end{equation*}
+
+\par Ahol felhasználtam a feladat által megadott, korábban itt bebizonyított összefüggést. Továbbá, ki kell még használni, hogy $\sigma$ operátorok hermitikusak, így 'balra is hathatnak':
+
+\begin{equation*}
+\begin{gathered}
+\ket{\uparrow_{T}} = \ket{\uparrow}cos\Big(\frac{\mu B}{2} T\Big) - sin\Big(\frac{\mu B}{2}T\Big)\ket{\downarrow} \\
+\ket{\downarrow_{T}} = \ket{\downarrow}cos\Big(\frac{\mu B}{2} T\Big) + sin\Big(\frac{\mu B}{2}T\Big)\ket{\uparrow}
+\end{gathered}
+\end{equation*}
+
+\par Ezután $t = T$-ben a sűrűségmátrix:
+
+\begin{equation*}
+\rho_{T} = \frac{3}{5}\ket{\uparrow_{T}}\bra{\uparrow_{T}} + \frac{2}{5}\ket{\downarrow_{T}}\bra{\downarrow_{T}}
+\end{equation*}
+
+\par Amit az eredeti állapotokra visszaírva:
+
+\begin{equation*}
+\begin{split}
+\rho_{T} = \frac{3}{5}\Big( \ket{\uparrow}\bra{\uparrow}cos^{2}\alpha - \ket{\uparrow}\bra{\downarrow}sin\alpha cos\alpha - sin\alpha cos\alpha\ket{\downarrow}\bra{\uparrow} + sin^{2}\alpha \ket{\downarrow}\bra{\downarrow}\Big) \quad + \\
++ \quad \frac{2}{5}\Big( \ket{\downarrow}\bra{\downarrow}cos^{2}\alpha + \ket{\downarrow}\bra{\uparrow}sin\alpha cos\alpha + sin\alpha cos\alpha \ket{\uparrow}\bra{\downarrow} + sin^{2}\alpha \ket{\uparrow}\bra{\uparrow}\Big)
+\end{split}
+\end{equation*}
+
+\par Mivel a feladat az $S_{z}$ operátor várható értékére kíváncsi $t=T$-ben, így egyből mondhatjuk, hogy:
+
+\begin{equation*}
+\begin{gathered}
+<\hat{S}_{z}> = Tr(\hat{S}_{z}\hat{\rho}) = Tr\Big( \frac{3}{5}\Big[ \frac{\hbar}{2}cos^{2}\alpha (\uparrow\uparrow) - sin^{2}\alpha \frac{\hbar}{2} (\downarrow\downarrow) \Big] \quad + \\
++ \quad \frac{2}{5}\Big[ -\frac{\hbar}{2}(\downarrow\downarrow)cos^{2}\alpha + (\uparrow\uparrow)\frac{\hbar}{2}sin^{2}\alpha\Big] \Big)
+\end{gathered}
+\end{equation*}
+
+\par Ahol felhasználtam, hogy $\hat{S}_{z}, \ket{\uparrow}$ és $\ket{\downarrow}$ állapotokat megfordítja és $\pm1$-el szorozza és természetesen $\alpha = \frac{\mu B}{2}T$. Valamint, hogy a vegyes tagok trace-e $0$, továbbá, hogy az ugyanolyan tagok trace-e $1$, így:
+
+\begin{equation}
+\begin{gathered}
+<\hat{S}_{z}> = Tr(\hat{S}_{z}\hat{\rho}) = \frac{3}{5}\Big[ \frac{\hbar}{2}cos^{2}\alpha - sin^{2}\alpha \frac{\hbar}{2} \Big] + \frac{2}{5}\Big[ -\frac{\hbar}{2}cos^{2}\alpha + \frac{\hbar}{2}sin^{2}\alpha\Big] \quad = \\ \\
+\quad =  \frac{\hbar}{10}cos^{2}\Big(\frac{\mu B}{2}T\Big)
+\end{gathered}
+\end{equation}
+
 \end{document}
