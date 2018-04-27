@@ -1,0 +1,266 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hungarian]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper,
+		     tmargin = 35mm, 
+		     lmargin = 25mm,
+		     rmargin = 30mm,
+		     bmargin = 30mm}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{subfig}
+\usepackage{physics}
+
+\begin{document}
+
+\linespread{1.2}
+
+\begin{titlepage}
+
+	{\scshape\LARGE ELTE TTK \par}
+	\vspace{3cm}
+	{\scshape\Large Statisztikus fizika gyakorlat -  \large feladatok \par}
+	\vspace{1cm}
+	{\large\itshape Olar Alex\par}
+	\vfill
+	{\large 2018 \par}
+	
+\end{titlepage}
+
+\section{Lássuk be, hogy ha $0 < a$ valós szám, akkor: \[\int_{-\infty}^{\infty}e^{-ax^{2} + bx + c}dx = \sqrt{\frac{\pi}{a}}e^{\frac{b^{2}}{4a} + c}\]}
+
+\par Egyszerűen belátható, hogy:
+
+\begin{equation*}
+\begin{gathered}
+\int_{-\infty}^{\infty}e^{-ax^{2} + bx + c}dx = \int_{-\infty}^{\infty}e^{-a\big(x^{2} - \frac{b}{a}x - \frac{c}{a}\big)}dx = \int_{-\infty}^{\infty}e^{-a\big(\big(x - \frac{b}{2a}\big)^{2} - \frac{b^{2}}{4a^{2}} - \frac{c}{a}\big)}dx \\ \\
+u = \big(x - \frac{b}{2a}\big) \quad \quad du = dx \\ \\
+e^{\frac{b^{2}}{4a} + c}\int_{-\infty}^{\infty}e^{-au^{2}}du
+\end{gathered}
+\end{equation*}
+
+\par Az helyettesítés után a Gauss-integrált átírva kapjuk:
+
+\begin{equation}
+e^{\frac{b^{2}}{4a} + c}\int_{-\infty}^{\infty}e^{-au^{2}}du = e^{\frac{b^{2}}{4a} + c}\sqrt{\frac{\pi}{a}}
+\end{equation}
+
+\section{Lássuk be, hogy \[exp(i\alpha(\vec{a}\vec{\sigma})) = \sigma_{0}cos\alpha + i(\vec{a}\vec{\sigma})sin\alpha\]}
+
+\par Először is vegyük az egyenlet bal oldalát és fejtsóük azt sorba
+
+\begin{equation*}
+exp(i\alpha(\vec{a}\vec{\sigma})) = \sigma_0 + \frac{(\vec{a}\vec{\sigma})(\vec{a}\vec{\sigma})}{2!}(i\alpha)^{2} + \frac{(\vec{a}\vec{\sigma})^{3}}{3!}(i\alpha)^{3} + ... \\
+\end{equation*}
+
+\par A második tagban felhasználva, hogy:
+
+\begin{equation*}
+(\vec{a}\vec{\sigma})(\vec{a}\vec{\sigma}) = a^{2}\sigma_0 + i(\vec{a} \times \vec{a})\vec{\sigma} = a^{2}\sigma_0
+\end{equation*}
+
+\par Ezt beírva, és a többi tagban is felhasználva, hogy minden párosadik hatványon:
+
+\begin{equation*}
+(\vec{a}\vec{\sigma})^{2k} = a^{2k}\sigma_0
+\end{equation*}
+
+\par Ebből már egyenesen következik, hogy két részre esik szét a sor:
+
+\begin{equation*}
+exp(i\alpha(\vec{a}\vec{\sigma})) = \sigma_0 + \frac{a^{2}}{2!}\sigma_0 (i\alpha)^{2} + \frac{a^{4}}{4!}\sigma_0 (i\alpha)^{4} + ... \\
+\frac{a^{2}(\vec{a}\vec{\sigma})}{3!}(i\alpha)^{3} + \frac{a^{4}(\vec{a}\vec{\sigma})}{5!}(i\alpha)^{5} + ...
+\end{equation*}
+
+\par Ebből már szépen látszik, hogy:
+
+\begin{equation*}
+\begin{gathered}
+exp(i\alpha(\vec{a}\vec{\sigma})) = \Big( \sigma_0 + \frac{a^{2}}{2!}\sigma_0 (i\alpha)^{2} + \frac{a^{4}}{4!}\sigma_0 (i\alpha)^{4} + ... \Big) + \Big( 
+\frac{a^{2}(\vec{a}\vec{\sigma})}{3!}(i\alpha)^{3} + \frac{a^{4}(\vec{a}\vec{\sigma})}{5!}(i\alpha)^{5} + ... \Big)= \\
+\sigma_0 \Big(1 - \frac{a^{2}\alpha^{2}}{2!} + \frac{a^{4}\alpha^{4}}{4!} - ...\Big) + \frac{1}{a}(\vec{a}\vec{\sigma}) \Big(\frac{(i\alpha a)^{3}}{3!} + \frac{(i\alpha a)^{5}}{5!} + ...\Big) = \\ \\
+\sigma_0 cos(\alpha a) + \frac{1}{a}(\vec{a}\vec{\sigma}) sin(\alpha a)
+\end{gathered}
+\end{equation*}
+
+\par Azaz, ha $a = 1$, akkor:
+
+\begin{equation}
+\exp(i\alpha(\vec{a}\vec{\sigma})) = \sigma_0 cos\alpha + (\vec{a}\vec{\sigma}) sin\alpha
+\end{equation}
+
+\par ( Nem tudom, hogy itt a feladat nem kötötte ki, hogy $a = 1$ vagy én számoltam-e el valamit, de átnéztem egy párszor és nem tudom, hogy hol lehet a hiba. )
+
+\section{Tekintsünk egy két állapotú rendszer két ($\ket{\alpha}$ és $\ket{\beta})$) nem ortogonális állapotból ( $\bra{\alpha}\ket{\beta} = x$ ) $p$ valószínűséggel kevert állapotot. Határozzuk meg $Tr(\rho^{2})$!}
+
+\par A feladat szerint a sűrűség-operátor
+
+\begin{equation*}
+\rho = p\ket{\alpha}\bra{\alpha} + (1-p)\ket{\beta}\bra{\beta}
+\end{equation*}
+
+\par Ennek négyzete ekkor:
+
+\begin{equation*}
+\rho^{2} = p^{2}\ket{\alpha}\bra{\alpha} + (1-p)^{2}\ket{\beta}\bra{\beta} + (p - p^{2})\ket{\beta}\bra{\alpha}\bra{\beta}\ket{\alpha} + (p - p^{2})\ket{\alpha}\bra{\beta}\bra{\alpha}\ket{\beta}
+\end{equation*}
+
+\par Ahol az utóbbi két tagból az egyiket kiírva a jobb oldalról:
+
+\begin{equation*}
+Tr\Big((p - p^{2})\ket{\beta}\bra{\alpha}\bra{\beta}\ket{\alpha}\Big) = (p - p^{2})\Big( (\alpha_1 \beta_1^{*} + \alpha_2 \beta_{2}^{*})\dot(\alpha_{1}^{*}\beta_1 + \alpha_{2}^{*}\beta_{2})\Big) = (p - p^{2})|\bra{\alpha}\ket{\beta}|^{2}
+\end{equation*}
+
+\par A másik hasonlóra ugyan ez, és beírva, hogy a két állapot szorzata $x$:
+
+\begin{equation*}
+Tr\rho^{2} = p^{2}+ (1-p)^{2} + 2(p - p^{2})|x|^{2}
+\end{equation*}
+
+\section{Határozzuk meg a klasszikus állapotok $\Omega_{0}$ számát adott $E$ energia alatt a következő rendszerekre!}
+
+\subsection{Pattogó labda - $H = \frac{p^{2}}{2m} + mgx, \quad 0 \leq  x$}
+
+\par Mikrokanonikus eloszlás, ekkor:
+
+\begin{equation*}
+\Omega_0(E) = \int_{H < E}\frac{dxdp}{h} 
+\end{equation*}
+
+\par Mivel $E$ adott így van egy maximális pattogási magassás és egy maximális impulzus is, ameddig az integrálok mennek. Továbbá figyelembe kell venni, hogy a kitérés nem lehet negatív így csak 2 síknegyedre kell integrálni 4 helyett.
+
+\begin{gather*}
+p(x = 0) = p_{max} = \sqrt{2mE} 
+\end{gather*}
+
+\par Így $p$ szerint integrálni $0$ és $p_{max}$ között kell, míg $x$ megy 0 és $\frac{E}{mg} - \frac{p^{2}}{2m^{2}g}$ között a belső integrálban, tehát:
+
+\begin{equation*}
+\begin{gathered}
+\Omega_0(E) = \int_{H < E}\frac{dxdp}{h} = 2\int_{0}^{\sqrt{2mE}}dp\int_{0}^{\frac{E}{mg} - \frac{p^{2}}{2m^{2}g}}dx \frac{1}{h} = \\ \\
+= \frac{2}{h}\int_{0}^{\sqrt{2mE}}dp(\frac{E}{mg} - \frac{p^{2}}{2m^{2}g}) = \frac{2}{h}\Big[\frac{E}{mg}p - \frac{p^{3}}{6m^{2}g}\Big]_{0}^{\sqrt{2mE}}
+\end{gathered}
+\end{equation*}
+
+\par Elvégezve a behelyettesítést:
+
+\begin{equation}
+\Omega_0(E) = \int_{H < E}\frac{dxdp}{h} = \frac{4}{3}\frac{\sqrt{2mE^{3}}}{mgh}
+\end{equation}
+
+\subsection{Relativisztikus oszcillátor - $H = c|p| + \frac{1}{2}\alpha\omega^{2}x^{2}$}
+
+\par Most a kitérés lehet negatív és így $|p|$ miatt mindenhol két impulzuságra integrálunk 4 síknegyedben. A külső integrál megint $p$-re megy $p_{max} = \frac{E}{c}$, míg $x$ szerint most $\sqrt{(\frac{E}{c} - p)\frac{2c}{\alpha\omega^{2}}}$-ig megyünk $0$-tól. Ekkor tehát:
+
+\begin{equation*}
+\begin{gathered}
+\Omega_{0}(E) = \frac{1}{h}2\int_{0}^{\frac{E}{c}}dp\int_{0}^{\sqrt{(\frac{E}{c} - p)\frac{2c}{\alpha\omega^{2}}}}dx\cdot4 = \frac{8}{h}\int_{0}^{\frac{E}{c}}\sqrt{(\frac{E}{c} - p)\frac{2c}{\alpha\omega^{2}}} = \\ \\ \\
+= \frac{8}{h}\int_{0}^{\frac{E}{c}}\sqrt{\frac{2E}{\alpha\omega^{2}} - p\frac{2c}{\alpha\omega^{2}}} = - \frac{8\alpha\omega^{2}}{2ch} \Big[\frac{2}{3}\sqrt{\frac{2E}{\alpha\omega^{2}} - p\frac{2c}{\alpha\omega^{2}}}^{3}\Big]_{0}^{\frac{E}{c}}
+\end{gathered}
+\end{equation*}
+
+\par Ezt behelyettesítve:
+
+\begin{equation}
+\Omega_{0} = \frac{16E}{3hc}\sqrt{\frac{2E}{\alpha\omega^{2}}}
+\end{equation}
+
+\subsection{Relativisztikus pattogó labda - $H = c|p| + mgx, \quad 0 \leq x$}
+
+\par Két síknegyedre kell csak integrálni ugyanis csak azokban nem negatív $x$ és a külső integrálnak ismét $p$-t véve $0$-tól $\frac{E}{c}$-ig a belső integrál $0$-tól $\frac{E - cp}{mg}$-ig megy, hiszen az adott tartományon $p$ végig pozitív. Ekkor:
+
+\begin{equation*}
+\Omega_0 = \frac{2}{h}\int_{0}^{\frac{E}{c}}dp\int_{0}^{\frac{E - cp}{mg}}dx = \frac{2}{h}\Big[\frac{Ep - \frac{p^{2}c}{2}}{mg}\Big]_{0}^{\frac{E}{c}}
+\end{equation*}
+
+\par Ebből tehát:
+
+\begin{equation}
+\Omega_{0} = \frac{E^{2}}{mghc}
+\end{equation}
+
+\section{Határozzuk meg a hőmérséklet, a nyomás és a kémiai potenciálra vonatkozó összefüggéseket a klasszikus relativisztikus ,,foton" gáz esetére! Azaz ha egy részecskére vonatkozó Hamilton-függvény - $H = c|p|$.}
+
+\par N db részecskére a Hamilton-függvény $H = \sum_{i}c\sqrt{p_{x,i}^{2} + p_{y,i}^{2} + p_{z, i}^{2}}$. Szükség van $\Omega_{0}$-ra, ezt pedig:
+
+\begin{equation*}
+\Omega_{0} = \frac{1}{h^{3N}N!}\int_{H < E} d^{3N}p d^{3N}q = \frac{V^{N}}{h^{3N}N!}\int_{H < E} d^{3N}p 
+\end{equation*}
+
+\par Viszgálva ezt 1 részecskére:
+
+\begin{equation*}
+\Omega_{0}^{1} = \frac{V}{h^{3}1!}\int_{c|\vec{p}| < E_{1}} d^{3}p = \frac{V}{h^{3}}\frac{4}{3}\Big(\frac{E_{1}}{c}\Big)^{3}\pi
+\end{equation*}
+
+\par Ahol kihasználtam, hogy az impulzusra vett integrál egy gömb térfogata lényegében. Két részecskére:
+
+\begin{equation*}
+\Omega_{0} = \frac{V^{2}}{h^{6}2!}\int_{c(|\vec{p}_{1}| + \vec{p}_{2}) < E} d^{3}p_{1}d^{3}p_{2} = \frac{V^{2}}{h^{6}2!} \int_{0}^{ |\vec{p}_{1}| }d^{3}p_{1}^{'}\int_{0}^{E - c|\vec{p}_{1}^{'}|}d^{3}p_{2}
+\end{equation*}
+
+\par Ebből a belső integrál egy gömb térfogata, így:
+
+\begin{equation*}
+\begin{gathered}
+\Omega_{0} = \frac{V^{2}}{h^{6}2!} \int_{0}^{ |\vec{p}_{1}| }d^{3}p_{1}^{'}\int_{0}^{E - c|\vec{p}_{1}^{'}|}d^{3}p_{2} = \\
+= \int_{0}^{|\vec{p}_{1}|}4\pi p_{1}^{'2}dp_{1}^{'}\frac{4}{3}(E - c|\vec{p}_{1}|)^{3}\pi \frac{V^{2}}{h^{6}2!} = \frac{V^{2}}{h^{6}2!} 16\pi^{2} \frac{(E - c|\vec{p}_{1}|)^{6}}{3\cdot4\cdot5\cdot6}2\cdot1
+\end{gathered}
+\end{equation*}
+
+\par Innen már látható a logika. Nem végzem el a rekurziós lépést, mivel túl sok felesleges gépelésbe kerülne. Jó fizikus módjára higgyük el (kísérleti teológia):
+
+\begin{equation}
+\Omega_{0}^{N} = \frac{V^{N}}{h^{3N}N!}(4\pi)^{N}\frac{(E - c|\vec{p}|)^{3N}\cdot 2^{N}}{(3N)!}
+\end{equation}
+
+\par Ekkor már számolhatunk entrópiát $S = k_{B}Tln(\Omega_{0}^{N})$. A Striling-formulát természetesen használni kell majd $ln(N!) = N - N\cdot ln(N)$. Így tehát:
+
+\begin{equation*}
+\begin{gathered}
+S = k\Big[Nln(V) + Nln(8\pi) + 3Nln(\frac{E}{c}) - 3Nln(h) - Nln(N) + N - 3Nln(3N) + 3N\Big] \\
+\frac{1}{T} = \frac{\partial S}{\partial E}\Big|_{V,N} = k\Big[3N\frac{\frac{1}{c}}{\frac{E}{c}}\Big] = \frac{3Nk}{E} \\
+\end{gathered}
+\end{equation*}
+
+\par Tehát a hőmérséklet egy ilyen rendszerben $T = \frac{E}{3Nk}$. Felhasználva, hogy $\frac{\partial S}{\partial V}\Big|_{E,N} = \frac{p}{T}$, már a nyomás is számolható, ami egyszerűen
+
+\begin{equation*}
+p = T\frac{kN}{V}
+\end{equation*}
+
+\par A Gibbs-Duham-relációból $E = TS - pV + \mu N$. Mivel $T$ és $p$ is ismert már, így $\mu$:
+
+\begin{equation*}
+\mu = \frac{E + pV - TS}{N}
+\end{equation*}
+
+\par Ezt már nem helyettesítettem vissza.
+
+\section{Határozzuk meg az előző feladatban kiszámított entrópiát mikrokanonikus formalizmusban is!}
+
+\par Mikrokanonikus formalizmusban egy két állapotú renszer $E_{1} = 0$-ban $g$-szeresen degenerált. Ekkor $\Omega_{0} = \sum_{\sum_{n}E_{n} < E}1 \approx \Omega(E)$, vagyis:
+
+\begin{equation*}
+E = -(N-m)\epsilon \approx \Omega(E) = g^{M}\binom N M
+\end{equation*}
+
+\par Ahol $M$ a degenerált, $0$ energiás állapotban lévő részecskék száma, míg N az összes részecske száma. Ekkor $S = kln(\Omega)$:
+
+\begin{equation}
+\begin{gathered}
+S = k\Big(Mln(g) + ln(\frac{N!}{M!(N-M)!})\Big) = \\
+= kMln(g) + k(NlnN - MlnM - (N-M)ln(N-M))
+\end{gathered}
+\end{equation}
+
+\end{document}
